@@ -1,0 +1,30 @@
+@use "colors"
+
+input
+  display: inline-block
+  appearence: none
+  border: none
+  padding: .5em
+  border-radius: .5em
+  color: var(--text)
+  font-weight: bold
+  overflow: hidden
+  position: relative
+  background: transparent
+  cursor: text
+  text-decoration: none
+  transition: .2s
+
+  &.large
+    font-size: 1.5em
+
+  --shadow-in: .3em
+
+  box-shadow: 0 0 0 var(--shadow-in) colors.$bg inset
+
+  &:hover
+    --shadow-in: .3em
+  &:focus-within
+    --shadow-in: .2em
+  &:active
+    --shadow-in: .1em

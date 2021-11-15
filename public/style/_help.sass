@@ -1,0 +1,29 @@
+// TODO: Save this as an module
+
+@use "colors"
+
+.help
+  $textColor: mix(colors.$secondary, white, 100)
+
+  display: inline-block
+
+  background: colors.$bg
+  color: $textColor
+
+  border-radius: 1em
+  cursor: help !important
+  padding: .1em .4em
+  margin: .2em
+  transition: .3s ease-in
+  --balloon-move: -1em
+
+  font-size: 20px
+  font-family: monospace
+  text-align: center
+  font-weight: bold
+
+  user-select: none
+
+  &:hover
+    color: colors.$bg
+    background: $textColor

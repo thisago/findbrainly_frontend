@@ -1,0 +1,41 @@
+@use "colors"
+
+section
+  display: grid
+  place-items: center
+
+.container
+  padding: 2em
+  background: colors.$secondary
+  border-radius: .5em
+
+  h1
+    text-align: center
+
+.box
+  display: flex
+  flex-direction: column
+  padding: 1em
+
+  &.menu
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+    .item
+      display: flex
+      flex-direction: row
+      justify-content: space-between
+      margin: .5em 0
+
+header
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+.row
+  display: flex
+  flex-direction: row
+
+  *
+    margin: .5em

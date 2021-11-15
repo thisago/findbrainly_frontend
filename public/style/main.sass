@@ -1,0 +1,28 @@
+@use "colors"
+
+@use "help"
+@use "page"
+@use "button"
+@use "input"
+
+*
+  box-sizing: border-box
+  outline: none
+  tap-highlight-color: transparent
+
+.sections
+  display: flex
+  flex-direction: row
+  max-height: 100vh
+  overflow-x: scroll
+  overflow-y: hidden
+  scroll-snap-type: x mandatory
+  background: colors.$bg
+  color: colors.$text
+  font-family: sans-serif
+
+  section
+    overflow-y: auto
+    min-height: 100vh
+    min-width: 100vw
+    scroll-snap-align: center
