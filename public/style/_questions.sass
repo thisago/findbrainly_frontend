@@ -1,0 +1,92 @@
+@use "colors"
+
+.questions
+  display: flex
+  flex-direction: column
+  background: colors.$bg
+  border-radius: 1em
+
+  .question
+    font-family: Arial
+    background: colors.$secondary
+    border-radius: 1em
+    margin: 1em
+    padding: 1em
+
+    header
+      display: flex
+      flex-direction: row
+      align-items: center
+      justify-content: space-between
+      padding: .5em
+
+      .author
+        display: flex
+        flex-direction: row
+        align-items: center
+        font-size: 1.5em
+
+        *:nth-child(1)
+          margin-right: .5em
+        img
+          width: 2em
+          height: 2em
+          border-radius: 50%
+        span
+          font-family: monospace
+          font-weight: bold
+          font-size: 1.1em
+    header
+      border-bottom: .2em solid colors.$bg
+      margin-bottom: 1em
+
+      .creation
+        color: colors.$bg
+        font-weight: bold
+    main
+      .title
+        font-size: 1.3em
+        text-decoration: none
+        color: colors.$bg
+        font-weight: bold
+        transition: .2s
+
+        &:hover
+          color: colors.$primary
+      .body
+        color: mix(colors.$bg, white, 96)
+
+      .comments
+        display: flex
+        margin: 1em
+        flex-direction: column
+
+        .comment
+          display: flex
+          flex-direction: row
+          padding: 0 .5em
+          border-left: .2em solid colors.$bg
+
+          header
+            margin: 0
+            border: none
+
+            img
+              width: 2em
+              height: 2em
+              border-radius: 50%
+
+      .answer
+        padding: 1em
+        border-radius: 1em
+        border: .5em solid colors.$bg
+
+        &:nth-child(1)
+          box-shadow: 0em 0 1em colors.$bg
+
+  img[src=""]
+    $pattern: transparent 45%, colors.$primary 45%, colors.$primary 55%, transparent 55%
+    background: linear-gradient(to right, $pattern), linear-gradient(to top, $pattern), colors.$bg
+    box-shadow: 0 0 0 .3em colors.$bg inset
+    transform: rotate(45deg)
+    position: relative

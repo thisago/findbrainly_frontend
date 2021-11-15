@@ -18,5 +18,10 @@ const
     help: "Searches in Duckduckgo and shows all brainly questions with at least one answer",
     title: "Multiple",
     input: "Question",
-    search: "Search"
+    search: "Search",
+  )
+
+const
+  questionText* = (
+    answers: "Answers"
   )
