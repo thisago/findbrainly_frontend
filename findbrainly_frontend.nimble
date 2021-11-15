@@ -3,7 +3,7 @@
 version       = "1.0.0"
 author        = "lurlo"
 description   = "Frontend to findbrainly API"
-license       = "MIT"
+license       = "GPL-3"
 srcDir        = "src"
 
 bin = @["findbrainly_frontend"]
