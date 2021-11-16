@@ -14,7 +14,8 @@ func help*(
   icon = "?";
   size = "small";
 ): VNode =
-  if position notin ["up", "down", "left", "right", "up-left", "up-right", "down-left", "down-right"]:
+  if position notin ["up", "down", "left", "right", "up-left", "up-right",
+      "down-left", "down-right"]:
     doAssert false, "Invalid help tooltip position"
   if size notin ["small", "medium", "large", "fit"]:
     doAssert false, "Invalid help tooltip size"
@@ -37,13 +38,13 @@ proc get*(state: var State; route: string) =
   ajaxGet(apiUrl & route, @[], cb)
 
 func drawComments*(comments: JsonNode): VNode =
-  buildHtml tdiv(class="comments"):
+  buildHtml tdiv(class = "comments"):
     for comment in comments:
       let
         author = comment{"author"}.getStr
         avatar = comment{"avatar"}.getStr
         body = comment{"body"}.getStr
-      tdiv(class="comment"):
+      tdiv(class = "comment"):
         header(aria-label = author, data-balloon-pos = "left"):
           img(src = avatar)
         main:
@@ -64,7 +65,7 @@ proc drawQuestion*(question: JsonNode): VNode =
     header:
       tdiv(class = "author"):
         img(src = avatar)
-        span(class="name"): text author
+        span(class = "name"): text author
       tdiv(class = "creation"):
         text creation.fromUnix.format "MM/dd/yyyy hh:mm:ss"
     main:
@@ -77,7 +78,7 @@ proc drawQuestion*(question: JsonNode): VNode =
           p: text line
         if question{"attachments"}.len > 0:
           h3: text questionText.attachments
-          tdiv(class="attachements"):
+          tdiv(class = "attachements"):
             for node in question{"attachments"}:
               let url = kstring getStr node
               a(href = url):
@@ -94,9 +95,16 @@ proc drawQuestion*(question: JsonNode): VNode =
           header:
             tdiv(class = "author"):
               img(src = avatar)
-              span(class="name"): text author
+              span(class = "name"): text author
           main:
             tdiv(class = "body"):
               for line in body.split "\n":
                 p: text line
+              if answer{"attachments"}.len > 0:
+                h4: text questionText.attachments
+                tdiv(class = "attachements"):
+                  for node in answer{"attachments"}:
+                    let url = kstring getStr node
+                    a(href = url):
+                      text url
             drawComments answer{"comments"}
