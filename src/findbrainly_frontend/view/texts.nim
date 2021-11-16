@@ -25,4 +25,5 @@ const
   questionText* = (
     answers: "Answers",
     noTitle: "No title",
+    attachments: "Attachments",
   )

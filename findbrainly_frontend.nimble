@@ -1,6 +1,6 @@
 # Package
 
-version       = "1.1.0"
+version       = "1.2.0"
 author        = "lurlo"
 description   = "Frontend to findbrainly API"
 license       = "GPL-3"

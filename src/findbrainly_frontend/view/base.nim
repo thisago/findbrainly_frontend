@@ -1,4 +1,4 @@
-from std/json import JsonNode, items, `{}`, getStr, getInt, parseJson
+from std/json import JsonNode, items, `{}`, getStr, getInt, parseJson, len
 from std/times import fromUnix, format
 
 include pkg/karax/prelude
@@ -71,6 +71,13 @@ proc drawQuestion*(question: JsonNode): VNode =
       tdiv(class = "body"):
         for line in body.split "\n":
           p: text line
+        if question{"attachments"}.len > 0:
+          h3: text questionText.attachments
+          tdiv(class="attachements"):
+            for node in question{"attachments"}:
+              let url = kstring getStr node
+              a(href = url):
+                text url
       drawComments question{"comments"}
       hr()
       h2: text questionText.answers

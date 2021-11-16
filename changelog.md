@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.2.0 (11/16/2021)
+
+- Added attachements in draw function
+
+---
+
 ## Version 1.1.0 (11/16/2021)
 
 - If no title was provided in Brainly question, a placeholder text is added to allow clicking in link
