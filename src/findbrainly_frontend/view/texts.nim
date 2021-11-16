@@ -26,4 +26,5 @@ const
     answers: "Answers",
     noTitle: "No title",
     attachments: "Attachments",
+    noResults: "No results",
   )

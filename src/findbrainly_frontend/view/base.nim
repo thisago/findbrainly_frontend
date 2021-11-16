@@ -1,4 +1,5 @@
-from std/json import JsonNode, items, `{}`, getStr, getInt, parseJson, len
+from std/json import JsonNode, items, `{}`, getStr, getInt, parseJson, len,
+                     newJObject, `$`
 from std/times import fromUnix, format
 
 include pkg/karax/prelude
@@ -56,6 +57,9 @@ proc drawQuestion*(question: JsonNode): VNode =
     author = question{"author"}.getStr
     avatar = question{"avatar"}.getStr
     creation = question{"creation"}.getInt
+  if url.len == 0:
+    return buildHtml tdiv(class = "question"):
+      h1: text questionText.noResults
   buildHtml tdiv(class = "question"):
     header:
       tdiv(class = "author"):

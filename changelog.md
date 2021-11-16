@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 1.2.1 (11/16/2021)
+
+- If json is null in `base.drawQuestion`, then show a error
+
+---
+
 ## Version 1.2.0 (11/16/2021)
 
 - Added attachements in draw function
