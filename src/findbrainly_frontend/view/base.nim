@@ -66,7 +66,8 @@ proc drawQuestion*(question: JsonNode): VNode =
     main:
       a(class = "title", href = url, target = "_blank",
           rel = "noreferrer nofollow"):
-        text title
+        if title.len > 0: text title
+        else: text questionText.noTitle
       tdiv(class = "body"):
         for line in body.split "\n":
           p: text line

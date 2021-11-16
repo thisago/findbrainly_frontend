@@ -23,5 +23,6 @@ const
 
 const
   questionText* = (
-    answers: "Answers"
+    answers: "Answers",
+    noTitle: "No title",
   )
