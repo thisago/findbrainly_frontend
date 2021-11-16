@@ -23,9 +23,10 @@ proc renderMultipleSearch*: VNode =
           input(placeholder = multipleSearchPage.input):
             proc onInput(ev: Event; n: VNode) =
               search = n.value
-          button(class="btn"):
+          button(class = "btn"):
             text multipleSearchPage.search
             proc onClick(ev: Event; n: VNode) =
+              state.response = nil
               state.get "multi?q=" & $search
         if not isNil state.response:
           hr()

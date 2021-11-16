@@ -23,6 +23,7 @@ proc renderSingleSearch*: VNode =
           button(class="btn"):
             text singleSearchPage.search
             proc onClick(ev: Event; n: VNode) =
+              state.response = nil
               state.get "single?q=" & $search
         if not isNil state.response:
           hr()
