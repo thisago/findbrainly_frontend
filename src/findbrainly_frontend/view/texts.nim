@@ -27,4 +27,7 @@ const
     noTitle: "No title",
     attachments: "Attachments",
     noResults: "No results",
+    grade: "Grade: ",
+    subject: "Subject: ",
+    creation: "Creation: ",
   )

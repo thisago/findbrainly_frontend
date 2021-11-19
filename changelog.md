@@ -1,5 +1,12 @@
 # Changelog
 
+## Version 1.4.0 (11/16/2021)
+
+- Added grade and subject info
+- Added animations
+
+---
+
 ## Version 1.3.0 (11/16/2021)
 
 - Added attachements to answers

@@ -5,6 +5,8 @@ from std/times import fromUnix, format
 include pkg/karax/prelude
 import pkg/karax/kajax
 
+import pkg/animatecss
+
 from findbrainly_frontend/view/texts import questionText
 from findbrainly_frontend/config import apiUrl
 
@@ -44,7 +46,7 @@ func drawComments*(comments: JsonNode): VNode =
         author = comment{"author"}.getStr
         avatar = comment{"avatar"}.getStr
         body = comment{"body"}.getStr
-      tdiv(class = "comment"):
+      tdiv(class = "comment " & animatecss slideInLeft):
         header(aria-label = author, data-balloon-pos = "left"):
           img(src = avatar)
         main:
@@ -58,16 +60,27 @@ proc drawQuestion*(question: JsonNode): VNode =
     author = question{"author"}.getStr
     avatar = question{"avatar"}.getStr
     creation = question{"creation"}.getInt
+    subject = question{"subject"}.getStr
+    grade = question{"grade"}.getStr
   if url.len == 0:
     return buildHtml tdiv(class = "question"):
       h1: text questionText.noResults
   buildHtml tdiv(class = "question"):
     header:
-      tdiv(class = "author"):
+      tdiv(class = "author " & animatecss fadeIn):
         img(src = avatar)
         span(class = "name"): text author
-      tdiv(class = "creation"):
-        text creation.fromUnix.format "MM/dd/yyyy hh:mm:ss"
+      tdiv:
+        tdiv(class = "grade " & animatecss fadeIn):
+          bold: text questionText.grade
+          text grade
+        tdiv(class = "subject " & animatecss fadeIn):
+          bold: text questionText.subject
+          text subject
+        tdiv(class = "creation " & animatecss fadeIn):
+          bold: text questionText.creation
+          text creation.fromUnix.format "MM/dd/yyyy hh:mm:ss"
+
     main:
       a(class = "title", href = url, target = "_blank",
           rel = "noreferrer nofollow"):
@@ -91,7 +104,7 @@ proc drawQuestion*(question: JsonNode): VNode =
           author = answer{"author"}.getStr
           avatar = answer{"avatar"}.getStr
           body = answer{"body"}.getStr
-        tdiv(class = "answer"):
+        tdiv(class = "answer " & animatecss fadeIn):
           header:
             tdiv(class = "author"):
               img(src = avatar)
