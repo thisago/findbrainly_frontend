@@ -1,7 +1,7 @@
 # Package
 
 version       = "1.4.0"
-author        = "lurlo"
+author        = "Thiago Navarro"
 description   = "Frontend to findbrainly API"
 license       = "GPL-3"
 srcDir        = "src"
